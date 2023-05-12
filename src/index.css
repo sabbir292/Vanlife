@@ -10,10 +10,10 @@
     @apply bg-[#FFF7ED]
   }
   .btn{
-    @apply px-[26px] py-[7px] rounded-md text-[16px] leading-[24px] font-[500] capitalize
+    @apply px-[26px] py-[7px] rounded-md text-[16px] leading-[24px] font-[500] capitalize flex items-center justify-center
 }
   .category-btn{
-    @apply px-[20px] py-[5px] rounded-md text-[14px] leading-[24px] font-[500] capitalize h-10 bg-[#FFEAD0] 
+    @apply flex items-center px-[20px] py-[5px]  rounded-md text-[14px] leading-[24px] font-[500] capitalize h-8 bg-[#FFEAD0] 
 }
   .inter{
     @apply font-[Inter]
@@ -24,4 +24,15 @@
   .hover{
     @apply hover:scale-125 ease-in duration-75 font-bold
   }
+  .active-filter.simple{
+    @apply bg-[#E17654] text-white duration-300 ease-in-out
+  }
+  .active-filter.luxury{
+    @apply bg-[#161616] text-white duration-300 ease-in-out
+  }
+  .active-filter.rugged{
+    @apply bg-[#115E59] text-white duration-300 ease-in-out
+  }
+ 
+ 
 }

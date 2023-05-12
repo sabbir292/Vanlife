@@ -1,11 +1,11 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom'
 
 
 import Layout from './Layout'
 import Home from './Home'
 import About from './About'
-import Vans from './Vans'
+import Vans, {loader} from './Vans'
 // Van nesting routs:
 import Vandetails from './Vandetails'
 import Host from './Host'
@@ -23,38 +23,50 @@ import Photos from './pages/host/Photos'
 import Reviews from './pages/host/Reviews'
 
 
+import Error from './Error'
 import '../Server'
+
+
+const router = createBrowserRouter(createRoutesFromElements(
+    <Route path='/' element={<Layout />}>
+    <Route index element={<Home />} />
+    <Route path='about' element={<About />} />
+    <Route 
+        path='vans' 
+        element = {<Vans />} 
+        loader={loader}
+        errorElement = {<Error/>}    
+        />
+    <Route 
+        path='vans/:id' 
+        element = {<Vandetails />} 
+        // loader = {vanDetailsLoader}    
+        />
+
+    <Route path='host' element={<Host />}>
+       <Route index element={<Dashboard />}/>
+       <Route path='income' element={<Income />}/>
+       <Route path='vans' element={<Yourvans />}/>
+       <Route path='reviews' element={<Reviews/>}/>
+       
+       <Route path='vans/:id' element={<YourVanDetails />}>
+           <Route index element={<Details />} />   
+           <Route path='pricing' element={<Pricing />} />   
+           <Route path='photos' element={<Photos />} />   
+       </Route>
+       
+    </Route>
+
+    <Route path='*' element={<Error/>} />
+
+   
+</Route>
+))
+
 
 const App = () => {
     return (
-        <BrowserRouter>
-
-            <Routes>
-                <Route path='/' element={<Layout />}>
-                    <Route index element={<Home />} />
-
-                    <Route path='host' element={<Host />}>
-                       <Route index element={<Dashboard />}/>
-                       <Route path='income' element={<Income />}/>
-                       <Route path='vans' element={<Yourvans />}/>
-                       
-                       <Route path='vans/:id' element={<YourVanDetails />}>
-                           <Route index element={<Details />} />   
-                           <Route path='pricing' element={<Pricing />} />   
-                           <Route path='photos' element={<Photos />} />   
-                       </Route>
-
-                       
-                       <Route path='reviews' element={<Reviews/>}/>
-                    </Route>
-
-                    <Route path='about' element={<About />} />
-                    <Route path='vans' element = {<Vans />} />
-                    <Route path='vans/:id' element = {<Vandetails />} />
-                </Route>
-            </Routes>
-
-        </BrowserRouter>
+      <RouterProvider router={router}/>
     )
 }
 
