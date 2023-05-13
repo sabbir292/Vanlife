@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import { Link, useSearchParams, useLoaderData } from 'react-router-dom'
 import { getVans } from './Api'
 
@@ -10,7 +9,6 @@ export function loader(){
 const Vans = () => {
 
   const vandata = useLoaderData()
-
 
   // filter van using useSearchFilte
   const [searchParam, setSearchPram] = useSearchParams()
@@ -29,24 +27,7 @@ const Vans = () => {
 
   return (
     <section className='px-[26px] pb-14 bgprimary'>
-      {/* <h2 className='text-[#161616] text-[32px] py-[22px] leading-[34px] font-[700]'>Explore our van options</h2>
-      <div className='flex gap-3 pb-10 justify-between'>
-        <button className='category-btn'>simple</button>
-        <button className='bg-[#FFEAD0] category-btn'>luxury</button>
-        <button className='bg-[#FFEAD0] category-btn'>rugged</button>
-        <button className='border-b border-black text-[12px] leading-[18px]'>clear filters</button>
-      </div>
-      <div className='grid grid-cols-2 gap-[34px]'> */}
-
-      {/* Use links or button with setSearchparams for filter */}
-
-      {/* Link method */}
-
-       {/* <Link 
-                key={index}
-                className= 'category-btn'
-                to={`?type=${item}`}>{item}</Link> */}
-      {/* button method is bellow , i preffer using link because in that case we dont have to use onlick but you can do any */}
+  
       <h2 className='text-[#161616] text-[32px] py-[22px] leading-[34px] font-[700]'>Explore our van options</h2>
       <div className='flex items-center justify-between'>
           { uniqueType.map((item,index)=> (
@@ -66,7 +47,10 @@ const Vans = () => {
               <div key={id}>
                   <Link 
                     to={`${id}`} 
-                    state = {{search: searchParam.toString()}}>
+                    state = {{
+                      search: `?${searchParam.toString()}`,
+                      type :typeFilter,
+                      }}>
                   {/* here we passing the state to the next route, stae will include whatever in the link excliding the main path. so we can use that to get back the same state if like any filter is added in this case we can get back to ite */}
                     <img className='object-cover rounded-md my-4' src={imageUrl} alt="" />
                     <div className='flex justify-between'>

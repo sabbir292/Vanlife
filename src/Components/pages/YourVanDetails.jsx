@@ -1,27 +1,27 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import { NavLink, Link } from 'react-router-dom'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLoaderData } from 'react-router-dom'
+import { getHostVans } from '../Api'
+import {authRequired} from '../utils'
+
+
+export async function hostVanDetailsLoader( {params} ){
+    await authRequired()
+    return getHostVans(params.id)
+}
 
 const YourVanDetails = () => {
-    const params = useParams()
-    const [VanDetails, setVanDetails] = useState([])
-    const { id, name, price, description, imageUrl, type} = VanDetails
 
-    useEffect(() => {
-        fetch(`/api/host/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => setVanDetails(data.vans[0]))
-    }, [params.id])
+    const VanDetails = useLoaderData()[0]
+    const { id, name, price, description, imageUrl, type} = VanDetails
 
     return (
         <section className='py-10 inter'>
             {VanDetails ? (<div>
                 <Link 
                     className='text-[16px] border-black border-b font-[500] mb-6' 
-                    // relative = 'path'
-                    to = '../vans'
+                    relative = 'path'
+                    to = '..'
                     >&larr; Back to all vans</Link>
                     
                 <div className='bg-white p-5 my-5'>

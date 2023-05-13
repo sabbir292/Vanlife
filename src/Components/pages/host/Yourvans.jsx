@@ -1,16 +1,16 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
+import { getHostVans } from '../../Api'
+import {authRequired} from '../../utils'
+
+export async function hostVanLoader(){
+    await authRequired()
+    return getHostVans()
+}
 
 const Yourvans = () => {
-  const [vandata, setVandata] = useState([])
+  const vandata = useLoaderData()
 
-  useEffect(() => {
-      fetch('/api/host/vans')
-          .then(res => res.json())
-          .then(data => setVandata(data.vans))
-  },[])
-  console.log(vandata)
   return (
       <section className='my-14 bgprimary flex-1 h-[100%]'>
         <h2 className='text-2xl leading-8 font-bold'>Your listed vans</h2>
