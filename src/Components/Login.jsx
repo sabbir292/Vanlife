@@ -1,10 +1,11 @@
 import { useLoaderData, Form, useActionData, useNavigation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 import { redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { signInWithEmailAndPassword , onAuthStateChanged, signOut} from 'firebase/auth'
 import { auth } from './Api'
-import { useState } from 'react'
+
+localStorage.clear('isLoggedIn')
 
 export function authMessageLoader( {request} ){
     return new URL(request.url).searchParams.get('message')
@@ -17,10 +18,10 @@ export async function action( {request} ){
     const pathName = new URL(request.url).searchParams.get('redirectTo') || '/host'
     console.log(pathName)
         try{
-            const user = await signInWithEmailAndPassword(auth, email, password)
-            // console.log(user)
-            localStorage.setItem('isLoggedIn', true)
+            const userCredential = await signInWithEmailAndPassword(auth, email, password)
+            const user = userCredential.user
             return redirect(pathName)
+            
         }catch(err){
             return err
         }

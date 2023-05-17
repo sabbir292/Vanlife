@@ -16,8 +16,7 @@ export async function action( {request} ){
     const pathName = new URL(request.url).searchParams.get('redirectTO') || '/host'
     try{
         const user = await createUserWithEmailAndPassword(auth, email, password)
-        // console.log(user)
-        // localStorage.setItem('isLoggedIn', true)
+
         redirect(pathName)
     }catch (err){
         return await err

@@ -13,6 +13,7 @@ export async function hostVanLoader({request}){
 
 const Yourvans = () => {
   const hostVansPromise = useLoaderData()
+  // console.log(hostVansPromise)
 
   return (
       <section className='my-14 bgprimary flex-1 h-[100%]'>
@@ -22,6 +23,7 @@ const Yourvans = () => {
       <Await resolve={hostVansPromise.vans}>
       {(vandata) =>
           vandata.map((item) => {
+            {/* console.log(vandata) */}
             const { id, name, price, imageUrl } = item
             return (
               <div key={id} className='my-5 bg-white  rounded-md flex items-center p-4'>

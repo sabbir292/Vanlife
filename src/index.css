@@ -19,7 +19,7 @@
     @apply font-[Inter]
   }
   .active{
-    @apply underline decoration-solid decoration-red-900 scale-125
+    @apply underline decoration-solid decoration-black scale-125
   }
   .hover{
     @apply hover:scale-125 ease-in duration-75 font-bold

@@ -5,14 +5,17 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route} f
 import Layout from './Layout'
 import Home from './Home'
 import About from './About'
-import Vans, { loader } from './Vans'
+import Vans, { loader as vansLoader} from './Vans'
 import Login, {authMessageLoader, action as loginAction} from './Login'
 import Signup, {loader as signupLoader, action as signupAction} from './Signup'
 // Van nesting routs:
 import Vandetails from './Vandetails'
 import Host from './Host'
 // Host nesting routs:
-import Dashboard from './pages/host/Dashboard'
+import 
+    Dashboard
+    ,{loader as dashboardLoader} 
+    from './pages/host/Dashboard'
 import Income from './pages/host/Income'
 import Yourvans, { hostVanLoader } from './pages/host/Yourvans'
 // Your van Nesting routs:
@@ -27,7 +30,6 @@ import Reviews from './pages/host/Reviews'
 
 import Error from './Error'
 // import '../Server'
-import { loader as vansLoader } from './Vans'
 import { vanDetailsLoader } from './Vandetails'
 import { authRequired } from './utils'
 
@@ -65,7 +67,9 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route
                 index
                 element={<Dashboard />}
-                loader={async ({request}) => await authRequired(request)}
+                loader = {dashboardLoader}
+                // errorElement = {<Error />}
+                // loader={async ({request}) => await authRequired(request)}
             />
             <Route
                 path='income'
