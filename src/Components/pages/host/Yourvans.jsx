@@ -16,7 +16,7 @@ const Yourvans = () => {
   // console.log(hostVansPromise)
 
   return (
-      <section className='my-14 bgprimary flex-1 h-[100%]'>
+      <section className='my-14 bgprimary flex-1'>
       <h2 className='text-2xl leading-8 font-bold'>Your listed vans</h2>
       <Suspense fallback={<TraceSpinner size={40} color="#00ff89"/>}>
 

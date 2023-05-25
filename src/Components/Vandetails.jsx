@@ -15,7 +15,7 @@ const Vandetails = () => {
 
 
     return (
-        <section className='px-[23px] py-10 bgprimary inter'>
+        <section className='px-[23px] py-10 bgprimary inter pb-24'>
             <Suspense fallback={<TraceSpinner size={40} color="#00ff89"/>}>
 
             <Await resolve={VanDetailsPromise.vans}>

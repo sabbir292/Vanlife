@@ -13,7 +13,7 @@ export async function loader({ request }) {
 
 const Dashboard = () => {
   const vandataPromise = useLoaderData()
-  console.log(vandataPromise)
+  // console.log(vandataPromise)
 
   return (
     <div>
@@ -48,7 +48,7 @@ const Dashboard = () => {
                 const { id, name, price, imageUrl } = item
                 return (
                     <div key={id} className='my-5 bg-white  rounded-md flex items-center p-4'>
-                      <Link to={`${id}`} className='flex gap-5 items-center h-18'>
+                      <Link to={`vans/${id}`} className='flex gap-5 items-center h-18'>
                         <img className='object-cover rounded-sm h-16' src={imageUrl} alt='Vans' />
                         <div>
                           <h4 className='text-sm font-semibold'>{name}</h4>
