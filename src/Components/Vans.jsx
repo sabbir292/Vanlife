@@ -32,11 +32,11 @@ const Vans = () => {
         <div className='flex items-center gap-4'>
         {/* one isssue here is if vans get another type then i have to add that type a color manually if it get filter by it. need to fix it */}
           {uniqueType.map((item, index) => (
-            <button className={`category-btn ${typeFilter === item ? 'active-filter' : ''} ${typeFilter === 'simple' && 'simple'} ${typeFilter === 'luxury' && 'luxury'} ${typeFilter === 'rugged' && 'rugged'} btn lg:text-lg`} key={index} onClick={() => setSearchPram({ type: item })}>{item}</button>
+            <button className={`category-btn ${typeFilter === item ? 'active-filter' : ''} ${typeFilter === 'simple' && 'simple'} ${typeFilter === 'luxury' && 'luxury'} ${typeFilter === 'rugged' && 'rugged'} btn lg:text-2xl md:text-xl`} key={index} onClick={() => setSearchPram({ type: item })}>{item}</button>
           ))
           }
 
-          {typeFilter && <Link to='.' className='border-b border-black text-[12px] leading-[18px]'>clear filters</Link>}
+          {typeFilter && <Link to='.' className='border-b border-black text-sm leading-[18px] lg:text-2xl md:text-xl'>clear filters</Link>}
         </div>
         <div className='grid grid-cols-2 gap-[34px] mt-4 place-items-center lg:grid-cols-3'>
 

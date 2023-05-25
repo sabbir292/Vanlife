@@ -4,8 +4,8 @@ import { NavLink} from 'react-router-dom'
 
 const Host = () => {
   return (
-   <section className='px-7 pb-16'>
-        <div className='flex gap-5'>
+   <section className='px-7 pb-16 lg:px-[20%]'>
+        <div className='flex gap-5 lg:text-3xl lg:font-regular'>
             <NavLink 
               className={({isActive})=> isActive? 'active hover':'hover'}
               end

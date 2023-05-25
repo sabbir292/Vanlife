@@ -6,7 +6,7 @@ const About = () => {
     //     backgroundImage: `url(${aboutbg})`
     // }
   return (
-    <section className='inter text-[#161616] bgprimary overflow -x-hidden mb-auto'>
+    <section className='inter text-[#161616] bgprimary overflow -x-hidden mb-24'>
             <img className='w-[100%] max-h-[234px] mb-4 object-cover' src={aboutbg} alt="" />
         <div>
             <div className='px-[28px]'>

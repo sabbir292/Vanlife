@@ -49,13 +49,13 @@ const Dashboard = () => {
                 return (
                     <div key={id} className='my-5 bg-white  rounded-md flex items-center p-4'>
                       <Link to={`vans/${id}`} className='flex gap-5 items-center h-18'>
-                        <img className='object-cover rounded-sm h-16' src={imageUrl} alt='Vans' />
+                        <img className='object-cover rounded-sm h-16 lg:h-44' src={imageUrl} alt='Vans' />
                         <div>
-                          <h4 className='text-sm font-semibold'>{name}</h4>
-                          <p className='text-sm'>${price}/day</p>
+                          <h4 className='text-sm font-semibold lg:text-2xl md:text-xl'>{name}</h4>
+                          <p className='text-sm lg:text-xl md:text-lg'>${price}/day</p>
                         </div>
                       </Link>
-                        <Link className='ml-auto'>Edit</Link>
+                        <Link className='ml-auto lg:text-2xl md:text-xl'>Edit</Link>
                     </div>
                 )
               })

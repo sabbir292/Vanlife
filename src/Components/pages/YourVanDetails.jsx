@@ -20,7 +20,7 @@ const YourVanDetails = () => {
         <section className='py-10 inter'>
             <div>
                 <Link
-                    className='text-[16px] border-black border-b font-[500] mb-6'
+                    className='text-[16px] border-black border-b font-[500] mb-6 lg:text-2xl md:text-xl'
                     relative='path'
                     to='..'
                 >&larr; Back to all vans</Link>
@@ -32,17 +32,17 @@ const YourVanDetails = () => {
                         return (
                             <div className='bg-white p-5 my-5'>
                                 <div className='flex gap-5 items-center'>
-                                    <img className='object-cover rounded-md pb-4 h-40' src={imageUrl} alt="" />
+                                    <img className='object-cover rounded-md pb-4 h-40 lg:h-64 md:h-64' src={imageUrl} alt="" />
                                     <div className=''>
-                                        <button className={`${type === 'simple' && 'bg-[#E17654]'} ${type === 'luxury' && 'bg-[#161616]'} ${type === 'rugged' && 'bg-[#115E59]'} btn text-[#FFFFFF] mb-4`}>{type}</button>
-                                        <h4 className='text-[#161616] text-[20px] leading-[27px] font-bold'>{name}</h4>
+                                        <button className={`${type === 'simple' && 'bg-[#E17654]'} ${type === 'luxury' && 'bg-[#161616]'} ${type === 'rugged' && 'bg-[#115E59]'} btn text-[#FFFFFF] mb-4 lg:px-12 lg:py-3 lg:text-xl md:text-xl`}>{type}</button>
+                                        <h4 className='text-[#161616] text-[20px] leading-[27px] font-bold lg:text-3xl md:text-3xl' >{name}</h4>
                                         <div className='flex gap-0 items-center mb-4'>
-                                            <h4 className='text-[#161616] text-[17px] leading-[27px] font-[700]'>${price}</h4>
-                                            <span className='text-sm'>/day</span>
+                                            <h4 className='text-[#161616] text-[17px] leading-[27px] font-[700] lg:text-xl md:text-xl'>${price}</h4>
+                                            <span className='text-sm lg:text-xl md:text-xl'>/day</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div className='flex gap-5 font-medium text-sm pb-4'>
+                                <div className='flex gap-5 font-medium text-sm pb-4 lg:text-2xl'>
                                     <NavLink
                                         to={`.`}
                                         end

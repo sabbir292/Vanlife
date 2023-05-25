@@ -17,7 +17,7 @@ const Yourvans = () => {
 
   return (
       <section className='my-14 bgprimary flex-1'>
-      <h2 className='text-2xl leading-8 font-bold'>Your listed vans</h2>
+      <h2 className='text-2xl leading-8 font-bold lg:text-4xl'>Your listed vans</h2>
       <Suspense fallback={<TraceSpinner size={40} color="#00ff89"/>}>
 
       <Await resolve={hostVansPromise.vans}>
@@ -28,10 +28,10 @@ const Yourvans = () => {
             return (
               <div key={id} className='my-5 bg-white  rounded-md flex items-center p-4'>
                 <Link to={`${id}`} className='flex gap-5 items-center h-18'>
-                  <img className='object-cover rounded-sm h-16' src={imageUrl} alt='Vans' />
+                  <img className='object-cover rounded-sm h-16 lg:h-44' src={imageUrl} alt='Vans' />
                   <div>
-                    <h4 className='text-sm font-semibold'>{name}</h4>
-                    <p className='text-sm'>${price}/day</p>
+                    <h4 className='text-sm font-semibold lg:text-2xl'>{name}</h4>
+                    <p className='text-sm lg:text-xl'>${price}/day</p>
                   </div>
                 </Link>
               </div>

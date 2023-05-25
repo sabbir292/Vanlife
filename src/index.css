@@ -13,7 +13,7 @@
     @apply px-[26px] py-[7px] rounded-md text-[16px] leading-[24px] font-[500] capitalize flex items-center justify-center
 }
   .category-btn{
-    @apply flex items-center px-[20px] py-[5px]  rounded-md text-[14px] leading-[24px] font-[500] capitalize h-8 bg-[#FFEAD0] 
+    @apply flex items-center px-5 py-2 rounded-md text-sm capitalize bg-[#FFEAD0] 
 }
   .inter{
     @apply font-[Inter]
